@@ -397,10 +397,10 @@ main {
 }
 .exp-arrow:hover { border-color: var(--orange); color: var(--orange); }
 
-/* ── Projects — dark section ─────────────────────────────── */
+/* ── Projects — warm halftone section ───────────────────── */
 .projects-section {
   position: relative;
-  background: var(--dk-bg);
+  background: #F4EDE0;
   padding: 3rem 0 5rem;
   overflow: hidden;
 }
@@ -427,7 +427,7 @@ main {
   padding: 0 2.5rem;
 }
 
-.projects-section .section-title { color: var(--dk-text); }
+.projects-section .section-title { color: var(--text-primary); }
 
 .projects-showcase {
   display: grid;
@@ -438,21 +438,24 @@ main {
 
 /* Featured card */
 .project-featured {
-  background: var(--dk-surface);
-  border: 1px solid var(--dk-border);
-  border-radius: 10px;
+  background-color: #FEFCF8;
+  background-image: radial-gradient(circle, rgba(165, 128, 72, 0.20) 1.2px, transparent 1.2px);
+  background-size: 13px 13px;
+  border: 1px solid #DDD0BE;
+  border-radius: 8px;
   padding: 2.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   min-height: 340px;
-  transition: border-color 0.22s;
+  transition: border-color 0.22s, box-shadow 0.22s;
 }
-.project-featured:hover { border-color: var(--dk-border-hi); }
+.project-featured:hover {
+  border-color: var(--orange);
+  box-shadow: 0 4px 24px rgba(199, 91, 42, 0.08);
+}
 
-.featured-title {
-  font-size: 1.3rem !important;
-}
+.featured-title { font-size: 1.3rem !important; }
 
 /* Side cards */
 .project-side {
@@ -462,30 +465,42 @@ main {
 }
 
 .project-small {
-  background: var(--dk-surface);
-  border: 1px solid var(--dk-border);
-  border-radius: 10px;
+  background-color: #FEFCF8;
+  background-image: radial-gradient(circle, rgba(165, 128, 72, 0.18) 1px, transparent 1px);
+  background-size: 11px 11px;
+  border: 1px solid #DDD0BE;
+  border-radius: 8px;
   padding: 1.6rem;
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
   flex: 1;
-  transition: border-color 0.22s;
+  transition: border-color 0.22s, box-shadow 0.22s;
 }
-.project-small:hover { border-color: var(--dk-border-hi); }
+.project-small:hover {
+  border-color: var(--orange);
+  box-shadow: 0 4px 16px rgba(199, 91, 42, 0.07);
+}
 
-/* ── Card icon ───────────────────────────────────────────── */
+/* ── Card icon — per-type warm colors ────────────────────── */
 .card-icon {
   width: var(--icon-size, 44px);
   height: var(--icon-size, 44px);
-  color: var(--dk-teal);
+  color: var(--teal);
   flex-shrink: 0;
 }
-.card-icon svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
+.card-icon svg { width: 100%; height: 100%; display: block; }
+
+/* Each project type gets its own muted palette */
+.card-icon--bot    { color: #1A8FA0; }
+.card-icon--movie  { color: #7268B0; }
+.card-icon--chart  { color: #C47A30; }
+.card-icon--food   { color: #B85268; }
+.card-icon--store  { color: #C07830; }
+.card-icon--music  { color: #8B6AAE; }
+.card-icon--scatter{ color: #4A8A70; }
+.card-icon--globe  { color: #4878A8; }
+.card-icon--plane  { color: #5892C0; }
 
 /* Shared card elements */
 .card-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
@@ -494,9 +509,9 @@ main {
   font-family: var(--font-sans);
   font-size: 0.67rem;
   font-weight: 500;
-  color: var(--dk-teal);
-  background: var(--dk-teal-dim);
-  border: 1px solid var(--dk-teal-bdr);
+  color: var(--orange);
+  background: rgba(199, 91, 42, 0.08);
+  border: 1px solid rgba(199, 91, 42, 0.22);
   border-radius: 4px;
   padding: 0.14rem 0.44rem;
   letter-spacing: 0.03em;
@@ -506,13 +521,13 @@ main {
   font-family: var(--font-sans);
   font-size: 0.96rem;
   font-weight: 500;
-  color: var(--dk-text);
+  color: var(--text-primary);
   line-height: 1.38;
 }
 
 .card-desc {
   font-size: 0.85rem;
-  color: var(--dk-text-sec);
+  color: var(--text-secondary);
   line-height: 1.72;
   flex: 1;
 }
@@ -521,7 +536,7 @@ main {
   font-family: var(--font-sans);
   font-size: 0.78rem;
   font-weight: 500;
-  color: var(--dk-teal);
+  color: var(--teal);
   letter-spacing: 0.04em;
   align-self: flex-start;
   margin-top: 0.2rem;
@@ -541,9 +556,9 @@ main {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1px solid var(--dk-border-hi);
+  border: 1px solid rgba(199, 91, 42, 0.35);
   background: transparent;
-  color: var(--dk-text);
+  color: var(--text-primary);
   font-size: 1.1rem;
   cursor: pointer;
   display: flex;
@@ -552,12 +567,16 @@ main {
   line-height: 1;
   transition: border-color 0.18s, color 0.18s, background 0.18s;
 }
-.proj-arrow:hover { border-color: var(--dk-teal); color: var(--dk-teal); background: var(--dk-teal-dim); }
+.proj-arrow:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+  background: rgba(199, 91, 42, 0.06);
+}
 
 .proj-counter {
   font-family: var(--font-sans);
   font-size: 0.82rem;
-  color: var(--dk-text-sec);
+  color: var(--text-secondary);
   letter-spacing: 0.08em;
   min-width: 48px;
   text-align: center;
