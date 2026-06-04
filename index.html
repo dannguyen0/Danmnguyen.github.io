@@ -24,6 +24,51 @@
 
   <!-- ── HERO ──────────────────────────────────────────────── -->
   <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+        <defs>
+          <radialGradient id="g-teal" cx="680" cy="390" r="460" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="#14C4DC" stop-opacity="0.95"/>
+            <stop offset="45%"  stop-color="#0EA0B8" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#087A90" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="g-orange" cx="1000" cy="640" r="360" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="#D04A10" stop-opacity="0.92"/>
+            <stop offset="45%"  stop-color="#D04A10" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#D04A10" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="g-sky" cx="920" cy="90" r="310" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="#40B0E0" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#40B0E0" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="g-amber" cx="160" cy="720" r="300" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="#D89010" stop-opacity="0.75"/>
+            <stop offset="100%" stop-color="#D89010" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="g-deep" cx="1120" cy="380" r="240" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="#043A58" stop-opacity="0.7"/>
+            <stop offset="100%" stop-color="#043A58" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="grain">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" result="noise"/>
+            <feColorMatrix type="saturate" values="0" in="noise"/>
+          </filter>
+        </defs>
+        <rect width="1200" height="800" fill="#FFFFFF"/>
+        <ellipse cx="680"  cy="390" rx="530" ry="500" fill="url(#g-teal)"/>
+        <ellipse cx="1000" cy="640" rx="400" ry="360" fill="url(#g-orange)"/>
+        <ellipse cx="920"  cy="90"  rx="320" ry="240" fill="url(#g-sky)"/>
+        <ellipse cx="160"  cy="720" rx="300" ry="260" fill="url(#g-amber)"/>
+        <ellipse cx="1120" cy="380" rx="240" ry="280" fill="url(#g-deep)"/>
+        <g fill="none" stroke="#0A3040" stroke-width="0.9" opacity="0.18">
+          <rect x="170" y="95"  width="860" height="610" rx="2" transform="rotate(-5 600 400)"/>
+          <rect x="230" y="155" width="740" height="490" rx="2" transform="rotate(-5 600 400)"/>
+        </g>
+        <line x1="0" y1="402" x2="1200" y2="402" stroke="#B03808" stroke-width="0.6" opacity="0.18"/>
+        <line x1="0" y1="418" x2="1200" y2="418" stroke="#B03808" stroke-width="0.35" opacity="0.11"/>
+        <rect width="1200" height="800" filter="url(#grain)" opacity="0.16" style="mix-blend-mode:overlay"/>
+      </svg>
+    </div>
     <div class="hero-content">
       <h1>Dan<br>Nguyen</h1>
       <div class="hero-sub">
@@ -31,45 +76,6 @@
         <span class="dot">·</span>
         <span>Orange County, CA</span>
       </div>
-    </div>
-    <div class="hero-ribbon" aria-hidden="true">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 420" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
-        <defs>
-          <!-- Amber ribbon gradient: warm gold highlight → deep amber shadow -->
-          <linearGradient id="rg-amber" x1="0" y1="85" x2="0" y2="410" gradientUnits="userSpaceOnUse">
-            <stop offset="0%"   stop-color="#F4E0A2"/>
-            <stop offset="30%"  stop-color="#D4A038"/>
-            <stop offset="100%" stop-color="#8A4E18"/>
-          </linearGradient>
-          <!-- Blue ribbon gradient: periwinkle highlight → deep teal-blue shadow -->
-          <linearGradient id="rg-blue" x1="0" y1="148" x2="0" y2="468" gradientUnits="userSpaceOnUse">
-            <stop offset="0%"   stop-color="#C6DCF0"/>
-            <stop offset="30%"  stop-color="#72AADC"/>
-            <stop offset="100%" stop-color="#2A64A0"/>
-          </linearGradient>
-          <!-- Grain texture -->
-          <filter id="rg-grain">
-            <feTurbulence type="fractalNoise" baseFrequency="0.68" numOctaves="4" stitchTiles="stitch" result="noise"/>
-            <feColorMatrix type="saturate" values="0" in="noise"/>
-          </filter>
-          <!-- Clip: right half of SVG (where blue goes on top) -->
-          <clipPath id="rg-clip-right">
-            <rect x="680" y="0" width="760" height="420"/>
-          </clipPath>
-        </defs>
-
-        <!-- 1. Blue (full) — sits behind amber on the left -->
-        <path d="M 0,342 C 100,358 192,378 292,370 C 412,360 530,298 622,250 C 700,210 802,165 1002,154 C 1202,143 1362,160 1440,163 L 1440,256 C 1362,253 1202,236 1002,248 C 802,260 700,302 622,342 C 530,390 412,452 292,462 C 192,468 100,448 0,432 Z" fill="url(#rg-blue)"/>
-
-        <!-- 2. Amber (full) — on top of blue on the left -->
-        <path d="M 0,220 C 160,156 272,84 362,88 C 452,92 578,196 660,196 C 742,196 872,202 952,202 C 1112,202 1304,304 1440,312 L 1440,402 C 1304,402 1112,304 952,302 C 872,302 742,296 660,296 C 578,296 452,192 362,184 C 272,178 160,248 0,314 Z" fill="url(#rg-amber)"/>
-
-        <!-- 3. Blue clipped to right — goes on top of amber on the right -->
-        <path d="M 0,342 C 100,358 192,378 292,370 C 412,360 530,298 622,250 C 700,210 802,165 1002,154 C 1202,143 1362,160 1440,163 L 1440,256 C 1362,253 1202,236 1002,248 C 802,260 700,302 622,342 C 530,390 412,452 292,462 C 192,468 100,448 0,432 Z" fill="url(#rg-blue)" clip-path="url(#rg-clip-right)"/>
-
-        <!-- Grain overlay — makes gradients feel tactile -->
-        <rect width="1440" height="420" filter="url(#rg-grain)" opacity="0.20" style="mix-blend-mode:overlay; pointer-events:none;"/>
-      </svg>
     </div>
   </section>
 
