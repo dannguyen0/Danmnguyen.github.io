@@ -397,10 +397,10 @@ main {
 }
 .exp-arrow:hover { border-color: var(--orange); color: var(--orange); }
 
-/* ── Projects — warm halftone section ───────────────────── */
+/* ── Projects — teal/blue section ───────────────────────── */
 .projects-section {
   position: relative;
-  background: #F4EDE0;
+  background: #E4F4F8;
   padding: 3rem 0 5rem;
   overflow: hidden;
 }
@@ -438,8 +438,8 @@ main {
 
 /* Featured card */
 .project-featured {
-  background-color: #FEFCF8;
-  border: 1px solid #DDD0BE;
+  background-color: #F2FAFB;
+  border: 1px solid #B8D8E4;
   border-radius: 8px;
   padding: 2.5rem;
   display: flex;
@@ -449,8 +449,8 @@ main {
   transition: border-color 0.22s, box-shadow 0.22s;
 }
 .project-featured:hover {
-  border-color: var(--orange);
-  box-shadow: 0 4px 24px rgba(199, 91, 42, 0.08);
+  border-color: var(--teal);
+  box-shadow: 0 4px 24px rgba(26, 143, 160, 0.10);
 }
 
 .featured-title { font-size: 1.3rem !important; }
@@ -463,8 +463,8 @@ main {
 }
 
 .project-small {
-  background-color: #FEFCF8;
-  border: 1px solid #DDD0BE;
+  background-color: #F2FAFB;
+  border: 1px solid #B8D8E4;
   border-radius: 8px;
   padding: 1.6rem;
   display: flex;
@@ -474,8 +474,8 @@ main {
   transition: border-color 0.22s, box-shadow 0.22s;
 }
 .project-small:hover {
-  border-color: var(--orange);
-  box-shadow: 0 4px 16px rgba(199, 91, 42, 0.07);
+  border-color: var(--teal);
+  box-shadow: 0 4px 16px rgba(26, 143, 160, 0.08);
 }
 
 /* ── Card icon — per-type warm colors ────────────────────── */
@@ -552,7 +552,7 @@ main {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1px solid rgba(199, 91, 42, 0.35);
+  border: 1px solid rgba(26, 143, 160, 0.35);
   background: transparent;
   color: var(--text-primary);
   font-size: 1.1rem;
@@ -564,9 +564,9 @@ main {
   transition: border-color 0.18s, color 0.18s, background 0.18s;
 }
 .proj-arrow:hover {
-  border-color: var(--orange);
-  color: var(--orange);
-  background: rgba(199, 91, 42, 0.06);
+  border-color: var(--teal);
+  color: var(--teal);
+  background: rgba(26, 143, 160, 0.07);
 }
 
 .proj-counter {
