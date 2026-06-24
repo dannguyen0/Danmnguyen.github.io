@@ -520,6 +520,12 @@
         <circle cx="28" cy="9" r="3"/>
         <line x1="12" y1="28" x2="6" y2="28"/><line x1="44" y1="28" x2="50" y2="28"/>
         <line x1="9" y1="36" x2="9" y2="32" stroke-width="1"/><line x1="47" y1="36" x2="47" y2="32" stroke-width="1"/>
+      </svg>`,
+      hook: `<svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="28" cy="10" r="3.5"/>
+        <line x1="28" y1="13.5" x2="28" y2="34"/>
+        <path d="M28 34 Q28 48 40 48 Q50 48 50 38 Q50 30 42 30"/>
+        <path d="M42 30 L46 26"/>
       </svg>`
     };
 
@@ -602,8 +608,10 @@
       rightStops: CHEVRON_RIGHT_STOPS
     });
 
-    let projIndex = 0;
     const total = PROJECTS.length;
+    const PER_PAGE = 3;
+    const totalPages = Math.ceil(total / PER_PAGE);
+    let projPage = 0;
 
     function tagHTML(tags) {
       return tags.map(t => `<span class="tag">${t}</span>`).join('');
@@ -614,10 +622,11 @@
       return `<div class="card-icon card-icon--${key}" style="--icon-size:${size}px">${svg}</div>`;
     }
 
-    function renderProjects() {
-      const p0 = PROJECTS[projIndex];
-      const p1 = PROJECTS[(projIndex + 1) % total];
-      const p2 = PROJECTS[(projIndex + 2) % total];
+    function renderProjects(animate) {
+      const base = projPage * PER_PAGE;
+      const p0 = PROJECTS[base % total];
+      const p1 = PROJECTS[(base + 1) % total];
+      const p2 = PROJECTS[(base + 2) % total];
 
       document.getElementById('project-featured').innerHTML = `
         ${iconHTML(p0.icon, 72)}
@@ -637,19 +646,28 @@
         `;
       });
 
-      document.getElementById('proj-counter').textContent = `${projIndex + 1} / ${total}`;
+      document.getElementById('proj-counter').textContent = `${projPage + 1} / ${totalPages}`;
+
+      if (animate) {
+        ['project-featured', 'project-side-1', 'project-side-2'].forEach(id => {
+          const el = document.getElementById(id);
+          el.classList.remove('proj-anim');
+          void el.offsetWidth;
+          el.classList.add('proj-anim');
+        });
+      }
     }
 
     document.getElementById('proj-prev').addEventListener('click', () => {
-      projIndex = (projIndex - 1 + total) % total;
-      renderProjects();
+      projPage = (projPage - 1 + totalPages) % totalPages;
+      renderProjects(true);
     });
     document.getElementById('proj-next').addEventListener('click', () => {
-      projIndex = (projIndex + 1) % total;
-      renderProjects();
+      projPage = (projPage + 1) % totalPages;
+      renderProjects(true);
     });
 
-    renderProjects();
+    renderProjects(false);
 
     const expTrack = document.getElementById('exp-track');
     document.getElementById('exp-prev').addEventListener('click', () => {

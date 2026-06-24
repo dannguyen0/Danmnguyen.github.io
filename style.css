@@ -580,6 +580,14 @@ main {
   text-align: center;
 }
 
+@keyframes proj-fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.proj-anim {
+  animation: proj-fade-in 0.28s ease both;
+}
+
 /* ── Interests ───────────────────────────────────────────── */
 .interests {
   position: relative;

@@ -11,6 +11,13 @@
 
 const PROJECTS = [
   {
+    "title": "Hooked",
+    "description": "Real-time fishing forecast tool that aggregates live NOAA tide data, wind/pressure/swell from Open-Meteo, and solar/lunar positioning to calculate a location-based bite score. Add custom fishing spots, track peak windows, and pull current California regulations — all in the browser.",
+    "tags": ["JavaScript", "NOAA API", "Open-Meteo", "Forecast"],
+    "icon": "hook",
+    "link": "https://dannguyen0.github.io/hooked/"
+  },
+  {
     "title": "Claude Trading Bot",
     "description": "AI-powered options trading bot running three live strategies on AWS Lambda — credit spreads, TTM Squeeze momentum, and directional naked options. Claude Haiku acts as the scoring and decision engine, evaluating signals, news, and market regime before every trade. Full stack: DynamoDB, EventBridge, SNS alerts, API Gateway, and a live S3 dashboard.",
     "tags": ["Python", "Claude AI", "AWS", "Options"],
